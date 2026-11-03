@@ -15,7 +15,7 @@ id = "modpath"
 name = "Model Load Path Probe"
 description = "Function-entry hooks on the model-load driver, file opener, load poller and load step. Emits at most one line per session per hook."
 group = "Debug"
-default_enabled = true
+default_enabled = false
 channel = "developer"
 
 [[plugin]]
