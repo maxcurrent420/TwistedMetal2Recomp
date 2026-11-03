@@ -1,5 +1,7 @@
 # TwistedMetal2
 
+## Master Branch - Has Debug Mods to Help Dump Values and Have moa Fun.
+
 <!-- retcomm-readme-metrics -->
 [![GitHub downloads (all assets, all releases)](https://img.shields.io/github/downloads/RetroPortingToolKit/TwistedMetal2/total)](https://github.com/RetroPortingToolKit/TwistedMetal2/releases)
 [![GitHub downloads (latest release)](https://img.shields.io/github/downloads/RetroPortingToolKit/TwistedMetal2/latest/total)](https://github.com/RetroPortingToolKit/TwistedMetal2/releases/latest)
