@@ -16,7 +16,6 @@ name = "Max Current"
 description = "Mr Slam becomes Max Current — Grimm's model and handling, blue/gold paint, infinite health, turbo and ammo."
 group = "Vehicles"
 default_enabled = true
-channel = "developer"
 
 [[plugin]]
 feature = "max-current"
