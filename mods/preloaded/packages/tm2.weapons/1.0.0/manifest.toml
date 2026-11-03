@@ -15,7 +15,7 @@ id = "weapons-probe"
 name = "Weapons / Ammo / Turbo Probe"
 description = "VBlank differential sampler over the candidate car-struct and vehicle-record windows. Publishes a compact ASCII report into the mod arena; emits no file I/O."
 group = "Debug"
-default_enabled = true
+default_enabled = false
 channel = "developer"
 
 [[plugin]]
