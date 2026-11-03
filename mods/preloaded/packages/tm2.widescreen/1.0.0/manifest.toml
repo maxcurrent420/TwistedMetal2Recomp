@@ -1,0 +1,22 @@
+format_version = 5
+id = "tm2.widescreen"
+version = "1.0.0"
+name = "Twisted Metal 2 Widescreen"
+author = "psxrecomp"
+description = "Forces 16:9 widescreen display aspect ratio at game boot."
+resolver = "declarative"
+save_compatibility = "shared"
+
+[[target]]
+game_id = "SCUS-94306"
+
+[[feature]]
+id = "widescreen"
+name = "Widescreen"
+description = "16:9 widescreen display"
+group = "Display"
+default_enabled = true
+
+[[plugin]]
+feature = "widescreen"
+id = "tm2.widescreen"

@@ -13,9 +13,11 @@ extern void cosim_instr(uint32_t pc);
 extern int  psx_game_text_native_ok(uint32_t addr);  /* stale-static guard (dispatch shard) */
 extern int  psx_datashard_enter(CPUState* cpu, uint32_t key);  /* data-shard replay/capture (data_shards.c) */
 extern void psx_mod_instruction(CPUState*, uint32_t, uint32_t);
+extern uint32_t psx_mod_memory_address(const CPUState*, uint32_t, uint32_t, uint32_t);
 extern int psx_mod_function_entry(CPUState* cpu, uint32_t address);  /* trusted opt-in game-mod hook */
 extern int psx_ws_masked_reject(uint32_t flags, uint32_t mask); /* guarded packed-coordinate reject */
 extern int psx_ws_nclip_branch(uint32_t pc, uint32_t instr, int32_t mac0, int vanilla);
+extern int psx_mod_try_function_replacement(CPUState* cpu, uint32_t address);
 extern void psx_datashard_ret(CPUState* cpu);                  /* data-shard capture finalize */
 extern int  psx_vsync_query_hle_enter(CPUState* cpu, uint32_t func, uint32_t counter_addr, uint32_t gpustat_ptr_addr, uint32_t timer1_ptr_addr, uint32_t timer1_cache_addr);  /* load_accel.c */
 extern void psx_ws_sprite_tag(CPUState* cpu);  /* widescreen prim tag (gpu.c) */
@@ -2007,6 +2009,7 @@ void func_80149618(CPUState* cpu);
 void func_80149650(CPUState* cpu);
 void func_8014965C(CPUState* cpu);
 void func_80149704(CPUState* cpu);
+void func_80149750(CPUState* cpu);
 void func_80149864(CPUState* cpu);
 void func_80149970(CPUState* cpu);
 void func_80149A54(CPUState* cpu);
@@ -2264,6 +2267,7 @@ void func_80152284(CPUState* cpu);
 void func_80152288(CPUState* cpu);
 void func_80152664(CPUState* cpu);
 void func_801526CC(CPUState* cpu);
+void func_80152C80(CPUState* cpu);
 void func_8015338C(CPUState* cpu);
 void func_80153460(CPUState* cpu);
 void func_80153510(CPUState* cpu);
@@ -4166,10 +4170,12 @@ void psx_alias_body_8013F3EC(CPUState* cpu, uint32_t entry);
 void psx_alias_body_80144590(CPUState* cpu, uint32_t entry);
 void psx_alias_body_80145EB0(CPUState* cpu, uint32_t entry);
 void psx_alias_body_801482CC(CPUState* cpu, uint32_t entry);
+void psx_alias_body_80149704(CPUState* cpu, uint32_t entry);
 void psx_alias_body_8014A57C(CPUState* cpu, uint32_t entry);
 void psx_alias_body_8014A6A8(CPUState* cpu, uint32_t entry);
 void psx_alias_body_8014ABF8(CPUState* cpu, uint32_t entry);
 void psx_alias_body_8014FEF0(CPUState* cpu, uint32_t entry);
+void psx_alias_body_801526CC(CPUState* cpu, uint32_t entry);
 void psx_alias_body_80157DD4(CPUState* cpu, uint32_t entry);
 void psx_alias_body_8015E57C(CPUState* cpu, uint32_t entry);
 void psx_alias_body_8015F42C(CPUState* cpu, uint32_t entry);

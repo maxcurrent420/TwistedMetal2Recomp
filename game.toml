@@ -6,7 +6,7 @@ name = "TwistedMetal2"
 id = "SCUS-94306"
 players = 2
 exe = "disc/SCUS_943.06"
-disc = "/home/maxcurrent/Downloads/TM2/Twisted Metal 2/Twisted Metal 2.cue"
+disc = ""
 load_address = "0x800CDC54"
 entry_pc = "0x8013878C"
 text_size = "0x000B3800"
@@ -33,6 +33,71 @@ known_crc32 = [
 seeds = "seeds/ghidra_funcs.txt"
 out_dir = "generated"
 strict = true
+mod_function_entry_funcs = [
+    "0x800CDC54",
+    "0x801526CC",
+    "0x8012AEC4",
+    "0x800E5FFC",
+    "0x80161C70",
+    "0x80149750",
+    "0x80152C80",
+    "0x80136D98",
+    "0x8012B898",
+    "0x80136BB0",
+    "0x8012BE5C",
+    "0x801495A8",
+    "0x8012ADA0",
+    "0x8012AB20",
+    "0x8012AB78",
+    "0x801378A4",
+    "0x80137854",
+    "0x80137808",
+    "0x80137814",
+    "0x80123E1C",
+    "0x8012A998",
+    "0x8012BAFC",
+    "0x8014510C",
+    "0x8013CD30",
+    "0x8013C8A8",
+    "0x8013A6E4",
+    "0x8013A6FC",
+    "0x8013A714",
+    "0x80100488",
+    "0x80101B58",
+    "0x801334E8",
+    "0x8012CBC4",
+    "0x8014DA30",
+    "0x800DC88C",
+    "0x80103FB8",
+    "0x801073B4",
+    "0x8013ADB4",
+]
+
+mod_instruction_sites = [
+    "0x80152324",
+    "0x801523A0",
+    "0x80133558",
+    "0x80136CB0",
+    "0x80137814",
+    "0x80123E1C",
+    "0x8013C9C4",
+    "0x8013C9F8",
+    "0x8013CD98",
+    "0x8013CDD4",
+    "0x8013CF20",
+    "0x8013CF28",
+    "0x8013B008",
+    "0x8013AE60",
+    "0x8013CA30",
+    "0x80121028",
+    "0x80145238",
+    "0x80145A38",
+    "0x80145A98",
+    "0x80145150",
+    "0x8012ADBC",
+    "0x80121060",
+    "0x80119B88",
+]
 
 [runtime]
 window_title = "TwistedMetal2 Recompiled"
@@ -41,13 +106,22 @@ overlay_cache = true
 
 [video]
 renderer = "opengl"
-aspect_ratio = "4:3"
+aspect_ratio = "16:9"
+internal_resolution = "1080p"
+bloom = 1.0
+post_shader = "assets/bloom_full.pfx"
+
+[widescreen]
+hud_sprt_squash = true
+native_wide = false
+gte_game_mode = true
 
 [controller]
 default_mode = "digital"
 
 # Online mount gate: digests + track count + optional TOC fingerprint
 # (see docs/NETPLAY.md).
+multitap_analog = true
 [netplay]
 require_cue = true
 required_tracks = 12

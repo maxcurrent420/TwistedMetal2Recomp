@@ -1,0 +1,23 @@
+format_version = 7
+id = "tm2.weapons"
+version = "1.0.0"
+name = "TM2 Weapons / Ammo / Turbo Probe"
+author = "psxrecomp"
+description = "Live differential probe: samples candidate weapon-bay, ammo and turbo halfwords every other frame and records which ones decrease or increase, so the real ammo counter, the real turbo meter and the weapon-availability flag can be identified from observed behaviour instead of guesswork."
+resolver = "declarative"
+save_compatibility = "shared"
+
+[[target]]
+game_id = "SCUS-94306"
+
+[[feature]]
+id = "weapons-probe"
+name = "Weapons / Ammo / Turbo Probe"
+description = "VBlank differential sampler over the candidate car-struct and vehicle-record windows. Publishes a compact ASCII report into the mod arena; emits no file I/O."
+group = "Debug"
+default_enabled = true
+channel = "developer"
+
+[[plugin]]
+feature = "weapons-probe"
+id = "tm2.weapons"

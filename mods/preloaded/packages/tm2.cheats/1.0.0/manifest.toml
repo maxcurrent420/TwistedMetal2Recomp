@@ -1,0 +1,233 @@
+format_version = 5
+id = "tm2.cheats"
+version = "1.0.0"
+name = "Twisted Metal 2 Cheats"
+author = "psxrecomp"
+description = "GameShark-style cheat menu for Twisted Metal 2 with overlay UI. Toggle God Mode, Unlimited Energy/Turbo, weapon cheats, and more."
+resolver = "declarative"
+save_compatibility = "shared"
+
+[[target]]
+game_id = "SCUS-94306"
+
+# ---- Player Cheats ----
+
+[[feature]]
+id = "god-mode"
+name = "God Mode"
+description = "Invincibility flag - player cannot take damage"
+group = "Player"
+default_enabled = false
+channel = "developer"
+
+[[feature]]
+id = "unlimited-energy"
+name = "Unlimited Energy"
+description = "Health/energy pool locked at 120 (0x78)"
+group = "Player"
+default_enabled = false
+channel = "developer"
+
+[[feature]]
+id = "unlimited-turbo"
+name = "Unlimited Turbo"
+description = "Turbo meter locked at 200 (0xC8)"
+group = "Player"
+default_enabled = false
+channel = "developer"
+
+[[feature]]
+id = "unlimited-advanced-attack"
+name = "Unlimited Advanced Attack Energy"
+description = "Advanced attack energy locked at 1024 (0x400)"
+group = "Player"
+default_enabled = false
+channel = "developer"
+
+[[feature]]
+id = "mega-rapid-fire"
+name = "Mega Rapid Fire"
+description = "Rapid fire timers zeroed (0x80188B12=0, 0x80188B14=0)"
+group = "Player"
+default_enabled = false
+channel = "developer"
+
+[[feature]]
+id = "no-turbo"
+name = "No Turbo"
+description = "Turbo disabled (0x8018830A=0)"
+group = "Player"
+default_enabled = false
+channel = "developer"
+
+[[feature]]
+id = "no-energy"
+name = "No Energy"
+description = "Energy zeroed (0x80188514=0)"
+group = "Player"
+default_enabled = false
+channel = "developer"
+
+[[feature]]
+id = "always-frozen"
+name = "Always Frozen"
+description = "Freeze flag set (0x801883CC=1)"
+group = "Player"
+default_enabled = false
+channel = "developer"
+
+[[feature]]
+id = "never-frozen"
+name = "Never Frozen"
+description = "Freeze flag cleared (0x801883CC=0)"
+group = "Player"
+default_enabled = false
+channel = "developer"
+
+[[feature]]
+id = "disable-left-gun"
+name = "Left Gun Disabled"
+description = "Left gun disabled (0x80188AF2=0x0F0F)"
+group = "Player"
+default_enabled = false
+channel = "developer"
+
+# ---- Weapon Ammo Cheats ----
+
+[[feature]]
+id = "unlimited-specials"
+name = "Unlimited Specials"
+description = "Special weapon ammo locked at 99"
+group = "Weapons"
+default_enabled = false
+channel = "developer"
+
+[[feature]]
+id = "unlimited-fire-missiles"
+name = "Unlimited Fire Missiles"
+description = "Fire missile ammo locked at 99"
+group = "Weapons"
+default_enabled = false
+channel = "developer"
+
+[[feature]]
+id = "unlimited-homing-missiles"
+name = "Unlimited Homing Missiles"
+description = "Homing missile ammo locked at 99"
+group = "Weapons"
+default_enabled = false
+channel = "developer"
+
+[[feature]]
+id = "unlimited-remote-bombs"
+name = "Unlimited Remote Bombs"
+description = "Remote bomb ammo locked at 99"
+group = "Weapons"
+default_enabled = false
+channel = "developer"
+
+[[feature]]
+id = "unlimited-power-missiles"
+name = "Unlimited Power Missiles"
+description = "Power missile ammo locked at 99"
+group = "Weapons"
+default_enabled = false
+channel = "developer"
+
+[[feature]]
+id = "unlimited-napalms"
+name = "Unlimited Napalms"
+description = "Napalm ammo locked at 99"
+group = "Weapons"
+default_enabled = false
+channel = "developer"
+
+[[feature]]
+id = "unlimited-ricochet-bombs"
+name = "Unlimited Ricochet Bombs"
+description = "Ricochet bomb ammo locked at 99"
+group = "Weapons"
+default_enabled = false
+channel = "developer"
+
+[[feature]]
+id = "unlimited-lightning"
+name = "Unlimited Lightning"
+description = "Lightning ammo locked at 99"
+group = "Weapons"
+default_enabled = false
+channel = "developer"
+
+# ---- Plugin declarations ----
+
+[[plugin]]
+feature = "god-mode"
+id = "tm2.cheats.god-mode"
+
+[[plugin]]
+feature = "unlimited-energy"
+id = "tm2.cheats.unlimited-energy"
+
+[[plugin]]
+feature = "unlimited-turbo"
+id = "tm2.cheats.unlimited-turbo"
+
+[[plugin]]
+feature = "unlimited-advanced-attack"
+id = "tm2.cheats.unlimited-advanced-attack"
+
+[[plugin]]
+feature = "mega-rapid-fire"
+id = "tm2.cheats.mega-rapid-fire"
+
+[[plugin]]
+feature = "no-turbo"
+id = "tm2.cheats.no-turbo"
+
+[[plugin]]
+feature = "no-energy"
+id = "tm2.cheats.no-energy"
+
+[[plugin]]
+feature = "always-frozen"
+id = "tm2.cheats.always-frozen"
+
+[[plugin]]
+feature = "never-frozen"
+id = "tm2.cheats.never-frozen"
+
+[[plugin]]
+feature = "disable-left-gun"
+id = "tm2.cheats.disable-left-gun"
+
+[[plugin]]
+feature = "unlimited-specials"
+id = "tm2.cheats.unlimited-specials"
+
+[[plugin]]
+feature = "unlimited-fire-missiles"
+id = "tm2.cheats.unlimited-fire-missiles"
+
+[[plugin]]
+feature = "unlimited-homing-missiles"
+id = "tm2.cheats.unlimited-homing-missiles"
+
+[[plugin]]
+feature = "unlimited-remote-bombs"
+id = "tm2.cheats.unlimited-remote-bombs"
+
+[[plugin]]
+feature = "unlimited-power-missiles"
+id = "tm2.cheats.unlimited-power-missiles"
+
+[[plugin]]
+feature = "unlimited-napalms"
+id = "tm2.cheats.unlimited-napalms"
+
+[[plugin]]
+feature = "unlimited-ricochet-bombs"
+id = "tm2.cheats.unlimited-ricochet-bombs"
+
+[[plugin]]
+feature = "unlimited-lightning"
+id = "tm2.cheats.unlimited-lightning"

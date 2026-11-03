@@ -1,0 +1,23 @@
+format_version = 7
+id = "tm2.pmr"
+version = "1.0.0"
+name = "TM2 Player Model Root Probe"
+author = "psxrecomp"
+description = "Live instrumentation: capture arg1 at the player's render call sites and the player element's +284 model-root field in the same hook call, and hook the +284 field writer."
+resolver = "declarative"
+save_compatibility = "shared"
+
+[[target]]
+game_id = "SCUS-94306"
+
+[[feature]]
+id = "pmr"
+name = "Player Model Root Probe"
+description = "Function-entry hooks on the render function and the +284 field writer, plus instruction hooks on the two loads that feed the player's render call sites. Emits at most one line per session per distinct value."
+group = "Debug"
+default_enabled = true
+channel = "developer"
+
+[[plugin]]
+feature = "pmr"
+id = "tm2.pmr"

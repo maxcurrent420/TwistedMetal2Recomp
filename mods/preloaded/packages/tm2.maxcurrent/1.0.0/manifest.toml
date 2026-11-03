@@ -1,0 +1,23 @@
+format_version = 7
+id = "tm2.maxcurrent"
+version = "1.0.0"
+name = "Max Current"
+author = "psxrecomp"
+description = "Replaces Mr Slam with Max Current: Grimm's model and handling, a blue-and-gold recolor, and topped-off health, turbo and ammo."
+resolver = "declarative"
+save_compatibility = "shared"
+
+[[target]]
+game_id = "SCUS-94306"
+
+[[feature]]
+id = "max-current"
+name = "Max Current"
+description = "Mr Slam becomes Max Current — Grimm's model and handling, blue/gold paint, infinite health, turbo and ammo."
+group = "Vehicles"
+default_enabled = true
+channel = "developer"
+
+[[plugin]]
+feature = "max-current"
+id = "tm2.maxcurrent"

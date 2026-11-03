@@ -1,0 +1,23 @@
+format_version = 7
+id = "tm2.reversing"
+version = "1.0.0"
+name = "Twisted Metal 2 Reversing"
+author = "psxrecomp"
+description = "Comprehensive runtime logging for reverse engineering vehicle rendering, stats, and weapons."
+resolver = "declarative"
+save_compatibility = "shared"
+
+[[target]]
+game_id = "SCUS-94306"
+
+[[feature]]
+id = "reversing"
+name = "Reversing Debug"
+description = "Comprehensive runtime logging for reverse engineering."
+group = "Debug"
+default_enabled = true
+channel = "developer"
+
+[[plugin]]
+feature = "reversing"
+id = "tm2.reversing"

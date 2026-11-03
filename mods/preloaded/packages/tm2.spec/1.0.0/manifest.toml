@@ -1,0 +1,23 @@
+format_version = 7
+id = "tm2.spec"
+version = "1.0.0"
+name = "TM2 Vehicle Spec Slot Probe"
+author = "psxrecomp"
+description = "Live instrumentation: dumps the vehicle spec struct at 0x8016475C, records every write to its two model-index lists, and records every index-to-code resolution and DMD/TMS path build, so the player's model-index slot can be identified."
+resolver = "declarative"
+save_compatibility = "shared"
+
+[[target]]
+game_id = "SCUS-94306"
+
+[[feature]]
+id = "spec"
+name = "Vehicle Spec Slot Probe"
+description = "Function-entry hooks on the model-index resolver, the DMD and TMS path builders, the two spec index-list writers, and the file loader, plus a VBlank snapshot of the spec struct. Emits at most one line per session per distinct value."
+group = "Debug"
+default_enabled = true
+channel = "developer"
+
+[[plugin]]
+feature = "spec"
+id = "tm2.spec"

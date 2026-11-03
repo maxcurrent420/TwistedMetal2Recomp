@@ -1,0 +1,23 @@
+format_version = 7
+id = "tm2.capture"
+version = "1.0.0"
+name = "TM2 Capture"
+author = "psxrecomp"
+description = "Freeze-free runtime capture of the player's vehicle geometry list and model tables."
+resolver = "declarative"
+save_compatibility = "shared"
+
+[[target]]
+game_id = "SCUS-94306"
+
+[[feature]]
+id = "capture"
+name = "Capture"
+description = "Records what the game itself writes into the player's geometry list, with no file I/O from the mod."
+group = "Debug"
+default_enabled = true
+channel = "developer"
+
+[[plugin]]
+feature = "capture"
+id = "tm2.capture"

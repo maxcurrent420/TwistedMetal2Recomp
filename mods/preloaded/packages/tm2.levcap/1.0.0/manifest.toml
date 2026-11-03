@@ -1,0 +1,23 @@
+format_version = 7
+id = "tm2.levcap"
+version = "1.0.0"
+name = "Twisted Metal 2 Level-Transition Capture"
+author = "psxrecomp"
+description = "Assumption-free ordered runtime capture of campaign level transitions: dispatcher slot values (0x8017CFCC/CFD0/CFD4/E098 + $v0) deduped to one per (pos,id), roster-seeding ids with pre/post-commit phase, a ring buffer retaining the last transition/crash events, a crash-frame-context hook on func_8013CD30 (the repeated $ra=0x8013CD64 caller) recording slots/$v0/id/pos, v11 observation hooks on func_8013ADB4's per-level dispatch table (M: P/Q/R cells + 8 table words; J: the jr dispatch site; G: the ADB4 copy store; K2: the walker copy loop), v12 hooks for the Cyburbia id-11 crash: an N hook at func_80120FF0's table walk (0x80121028) dumping index/table-base/8 table words/entry/selector/dispatch-target (settles OOB-vs-uninitialized-pointer), L/A events now also recording the four dispatcher slots and the three per-object callback slots at load time, and v13 store/read hooks for the mission-dispatcher per-level slots (F: CFD4 store at 0x80145238; Z: E098 stores at 0x80145A38/0x80145A98; I: the fatal E098 read at 0x80145150) logging every write + caller $ra to settle whether provisioning fills them and who clobbers E098 — no id gating, no assumed shared per-level values, observation-only, and v14 ungated 2P-path hooks (U: every func_80137814 writer entry regardless of caller, with caller LR + dest id + mode/players; L2: every func_8012BAFC loader entry; SW: store-probe on spec+0x18 at 0x80137814 and 0x80123E1C gated on base==SPEC_BASE, logging store PC/value/caller $ra — resolves the real 2P level-set writer). v15: all hot per-instruction/per-frame hooks (I, N, K2/H, M, J, G, D, X, C, F, Z, Q, Y) are throttled behind a cheap stride sampler so the game runs at normal speed with levcap enabled while the TM2LEVCAP1 ring still captures every transition-boundary and pre-crash event. v16 (flood fix): the dedup-overflow defect is fixed (a full 128-slot dedup table now drops instead of falling through to record), an active-transition window (opened on writer-commit / spec-dest-change / campaign-entry with a different dest; closed once the destination is provably running or after a hard frame cap) gates the per-frame hot hooks (I/K2/D/X) so steady-state gameplay records nothing, a garbage-E098 anomaly escape always records crash I events even outside the window, and the ring is priority-aware (transition/crash-decisive kinds are never evicted by steady-state records). Crash-decisive hooks (C/Q/Z/F) stay ungated; TM2LEVCAP1 magic + reader contract unchanged; observation-only."
+resolver = "declarative"
+save_compatibility = "shared"
+
+[[target]]
+game_id = "SCUS-94306"
+
+[[feature]]
+id = "levcap"
+name = "Level Transition Capture"
+description = "Captures the campaign level-load selection (writer commit vs asset-resolver id) for the secret-level progression. v15: hot per-frame hooks are throttled so capture does not slow the game; crash events still captured. v16: an active-transition window gates the per-frame hooks and fixes the dedup-overflow flood, so steady-state SWAMP cannot saturate the ring and the SWAMP→Cyburbia transition + load-screen crash are retained."
+group = "Debug"
+default_enabled = true
+channel = "developer"
+
+[[plugin]]
+feature = "levcap"
+id = "tm2.levcap"

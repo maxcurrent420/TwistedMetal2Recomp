@@ -16,14 +16,14 @@ project(TwistedMetal2 LANGUAGES C CXX)
 # The wizard (WIZARD_CMAKE_BLOCK / ENABLE_SETUP_WIZARD) is the first-run disc
 # picker; releases are compiled from the committed generated/ C, so it never
 # needs to generate or rebuild anything on a player's machine.
-set(PSX_RECOMP_UI OFF CACHE BOOL
-    "No recomp-ui submodule in this scaffold" FORCE)
+set(PSX_RECOMP_UI ON CACHE BOOL
+    "Build the shared recomp-ui Dear ImGui launcher" FORCE)
 # Full netplay UI — enable after adding recomp-ui + testing:
 # if(EXISTS "${PSXRECOMP_ROOT}/lib/recomp-net/CMakeLists.txt")
 #     set(PSX_NETPLAY ON CACHE BOOL "…" FORCE)
 # endif()
 # First-run setup wizard — enable after testing:
-# set(PSX_SETUP_WIZARD ON CACHE BOOL "…" FORCE)
+set(PSX_SETUP_WIZARD ON CACHE BOOL "…" FORCE)
 include("${PSXRECOMP_ROOT}/runtime/runtime.cmake")
 
 # This project's own mod catalog. The FRAMEWORK stages it -- together with its
@@ -52,11 +52,12 @@ psxrecomp_add_game_runtime(psx-runtime
     GEN_MARKER "generated/SCUS_943.06_dispatch.c"
     GEN_FULL_GLOB "generated/SCUS_943.06_full_*.c"
     # CODEGEN_SETUP_SOURCES — add with recomp-ui / wizard later
+    EXTRAS_SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/src/mod_maxcurrent.c" "${CMAKE_CURRENT_SOURCE_DIR}/src/mod_reversing.c" "${CMAKE_CURRENT_SOURCE_DIR}/src/mod_capture.c" "${CMAKE_CURRENT_SOURCE_DIR}/src/mod_modpath.c" "${CMAKE_CURRENT_SOURCE_DIR}/src/mod_pmr.c" "${CMAKE_CURRENT_SOURCE_DIR}/src/mod_spec.c" "${CMAKE_CURRENT_SOURCE_DIR}/src/mod_weapons.c" "${CMAKE_CURRENT_SOURCE_DIR}/src/tm2_probe.c" "${CMAKE_CURRENT_SOURCE_DIR}/src/secret_levels_campaign.c" "${CMAKE_CURRENT_SOURCE_DIR}/src/tm2_levcap.c"
 )
 
 # Stage runtime configs next to the exe for direct build/ launches. Only copy
 # files that exist — never fail POST_BUILD when game_options.toml is absent.
-foreach(_PSX_RUNTIME_CONFIG game.toml game_options.toml)
+foreach(_PSX_RUNTIME_CONFIG game.toml game_options.toml assets/bloom_full.pfx)
     if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/${_PSX_RUNTIME_CONFIG}")
         add_custom_command(TARGET psx-runtime POST_BUILD
             COMMAND ${CMAKE_COMMAND} -E copy_if_different
