@@ -13,9 +13,9 @@ game_id = "SCUS-94306"
 [[feature]]
 id = "secret-levels-campaign"
 name = "Secret Levels Campaign"
-description = "Inserts the three secret levels at the start of the campaign."
+description = "Inserts the three secret levels at the start of the campaign. (Currently Only Swamp loads then 2nd level crashes the game)"
 group = "Gameplay"
-default_enabled = true
+default_enabled = false
 channel = "developer"
 
 [[plugin]]
