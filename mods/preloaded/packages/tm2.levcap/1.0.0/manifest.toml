@@ -15,7 +15,7 @@ id = "levcap"
 name = "Level Transition Capture"
 description = "Captures the campaign level-load selection (writer commit vs asset-resolver id) for the secret-level progression. v15: hot per-frame hooks are throttled so capture does not slow the game; crash events still captured. v16: an active-transition window gates the per-frame hooks and fixes the dedup-overflow flood, so steady-state SWAMP cannot saturate the ring and the SWAMP→Cyburbia transition + load-screen crash are retained."
 group = "Debug"
-default_enabled = true
+default_enabled = false
 channel = "developer"
 
 [[plugin]]
