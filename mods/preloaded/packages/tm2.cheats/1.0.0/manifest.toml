@@ -3,7 +3,7 @@ id = "tm2.cheats"
 version = "1.0.0"
 name = "Twisted Metal 2 Cheats"
 author = "psxrecomp"
-description = "GameShark-style cheat menu for Twisted Metal 2 with overlay UI. Toggle God Mode, Unlimited Energy/Turbo, weapon cheats, and more."
+description = "(Non Functional) GameShark-style cheat menu for Twisted Metal 2 with overlay UI. Toggle God Mode, Unlimited Energy/Turbo, weapon cheats, and more."
 resolver = "declarative"
 save_compatibility = "shared"
 
