@@ -57,7 +57,7 @@ psxrecomp_add_game_runtime(psx-runtime
 
 # Stage runtime configs next to the exe for direct build/ launches. Only copy
 # files that exist — never fail POST_BUILD when game_options.toml is absent.
-foreach(_PSX_RUNTIME_CONFIG game.toml game_options.toml assets/bloom_full.pfx)
+foreach(_PSX_RUNTIME_CONFIG game.toml game_options.toml assets/bloom_full.pfx assets/bloom_bright_full.glsl assets/bloom_composite_full.glsl)
     if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/${_PSX_RUNTIME_CONFIG}")
         add_custom_command(TARGET psx-runtime POST_BUILD
             COMMAND ${CMAKE_COMMAND} -E copy_if_different
