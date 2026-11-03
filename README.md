@@ -10,14 +10,14 @@ Static recompilation of **TwistedMetal2** built on
 [psxrecomp](https://github.com/mstan/psxrecomp) and
 [recomp-ui](https://github.com/RetroPortingToolKit/recomp-ui).
 
-_Add a short pitch in catalog_identity.json / README._
-
-| | |
-|---|---|
+Twisted Metal 2 (SCUS-94306)
 | Players | 2 |
 | Region | USA |
-| Publisher | — |
-| Year | — |
+| Publisher | SingleTrac |
+| Year | 1996 |
+
+Comes with Widescreen mod + subtle Bloom effect.
+
 
 Scaffolded with the New Project Layout. See
 `psxrecomp/docs/GAME_PROJECT_SETUP.md` for the full flow.
@@ -47,7 +47,7 @@ BIOS/ROM/save plumbing so you are not stuck repeating each game’s first run by
 
 ## Legal
 
-You must own the original game. Disc images under `disc/` are gitignored and
+You must own the original game disc SCUS-94306. Disc images under `disc/` are gitignored and
 must never be committed. Retail BIOS dumps are not redistributed and no C
 derived from one may be committed; releases run on the bundled MIT OpenBIOS.
 
